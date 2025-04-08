@@ -25,9 +25,10 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+defaults write com.apple.finder CreateDesktop -bool false
 
 # Run the screensaver if we're in the bottom-left hot corner.
-defaults write com.apple.dock wvous-bl-corner -int 5
+defaults write com.apple.dock wvous-bl-corner -int 13
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # Hide Safari's bookmark bar.
@@ -39,3 +40,9 @@ defaults write com.apple.Safari.plist IncludeDevelopMenu -bool true
 defaults write com.apple.Safari.plist WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari.plist "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# Prevent automatic sleeping on power adapter when the display is off
+if ! pmset -g | grep "sleep" | grep -q "sleep prevented"; then
+  echo "Disabling sleep on power adapter when the display is off"
+  sudo pmset -c sleep 0
+fi

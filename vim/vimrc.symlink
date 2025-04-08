@@ -1,4 +1,8 @@
+" Turn on syntax highlighting
 syntax on
+
+" Show line numbers
+set number
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
