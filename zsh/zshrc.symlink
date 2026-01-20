@@ -50,8 +50,12 @@ bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
 export DYLD_LIBRARY_PATH=/opt/homebrew/lib/libusb-1.0.dylib
+export C_INCLUDE_PATH="/opt/homebrew/opt/openssl@3/include:${C_INCLUDE_PATH}"
+export LIBRARY_PATH="/opt/homebrew/opt/openssl@3/lib:${LIBRARY_PATH}"
+
 
 
 export STM32_PRG_PATH=/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
+export STM32CubeMX_PATH=/Applications/STMicroelectronics/STM32CubeMX.app/Contents/Resources

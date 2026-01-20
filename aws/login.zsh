@@ -17,3 +17,6 @@ function awslogin() {
     export AWS_ACCOUNT=$(aws sts get-caller-identity --query 'Account' --output text)
     export AWS_REGION=$(aws configure get region --profile $AWS_PROFILE)
 }
+
+alias al='awslogin'
+
